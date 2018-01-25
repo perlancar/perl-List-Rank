@@ -160,7 +160,7 @@ sub sortrankby(&;@) {
     map { ($_->[0], $_->[2]) } @ary;
 }
 
-;
+1;
 # ABSTRACT: Ranking of list elements
 
 =head1 SYNOPSIS
