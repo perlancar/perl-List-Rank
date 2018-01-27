@@ -181,7 +181,7 @@ Return the ranks of the elements if sorted by a custom sorter:
 
 Sort the list numerically and return the elements as well as ranks in pairs:
 
- my @res = sortrank 10, 30, 20, 20; => 10,1, 20,"2=", 20,"2=", 30,4
+ my @res = sortrank 10, 30, 20, 20; # => 10,1, 20,"2=", 20,"2=", 30,4
 
 Sort the list ascibetically and return the elements as well as ranks in pairs:
 
