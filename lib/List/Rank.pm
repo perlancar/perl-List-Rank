@@ -1,12 +1,15 @@
 package List::Rank;
 
-# DATE
-# VERSION
-
 use strict;
 use warnings;
 
 use Exporter qw(import);
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @EXPORT_OK = qw(rank rankstr rankby sortrank sortrankstr sortrankby);
 
 sub rank(@) {
@@ -194,7 +197,7 @@ Sort the list ascibetically and return the elements as well as ranks in pairs:
 Sort the list by a custom sorter and return the elements as well as ranks in
 pairs:
 
- my @res = sortrankby "apple", "cucumber", "banana", "banana";
+ my @res = sortrankby {length($a) <=> length($b)} "apricot", "cucumber", "banana", "banana";
      # => "banana","1=", "banana","1=", "apricot",3, "cucumber",4
 
 
