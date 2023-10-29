@@ -12,7 +12,7 @@ use Exporter qw(import);
 
 our @EXPORT_OK = qw(rank rankstr rankby sortrank sortrankstr sortrankby);
 
-sub rank(@) {
+sub rank(@) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
     my @ary;
     my $i = 0;
     for (@_) { push @ary, [$_, $i++, undef] }
@@ -33,7 +33,7 @@ sub rank(@) {
     map { $_->[2] } sort { $a->[1] <=> $b->[1] } @ary;
 }
 
-sub rankstr(@) {
+sub rankstr(@) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
     my @ary;
     my $i = 0;
     for (@_) { push @ary, [$_, $i++, undef] }
@@ -54,8 +54,8 @@ sub rankstr(@) {
     map { $_->[2] } sort { $a->[1] <=> $b->[1] } @ary;
 }
 
-sub rankby(&;@) {
-    no strict 'refs';
+sub rankby(&;@) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
+    no strict 'refs'; ## no critic: TestingAndDebugging::ProhibitNoStrict
 
     my $cmp = shift;
 
@@ -89,7 +89,7 @@ sub rankby(&;@) {
     map { $_->[2] } sort { $a->[1] <=> $b->[1] } @ary;
 }
 
-sub sortrank(@) {
+sub sortrank(@) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
     my @ary;
     my $i = 0;
     for (@_) { push @ary, [$_, $i++, undef] }
@@ -110,7 +110,7 @@ sub sortrank(@) {
     map { ($_->[0], $_->[2]) } @ary;
 }
 
-sub sortrankstr(@) {
+sub sortrankstr(@) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
     my @ary;
     my $i = 0;
     for (@_) { push @ary, [$_, $i++, undef] }
@@ -131,8 +131,8 @@ sub sortrankstr(@) {
     map { ($_->[0], $_->[2]) } @ary;
 }
 
-sub sortrankby(&;@) {
-    no strict 'refs';
+sub sortrankby(&;@) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
+    no strict 'refs'; ## no critic: TestingAndDebugging::ProhibitNoStrict
 
     my $cmp = shift;
 
