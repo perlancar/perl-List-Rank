@@ -185,6 +185,18 @@ Return the ranks of the elements if sorted by a custom sorter:
  my @ranks = rankby {length($a) <=> length($b)}
      "apricot", "cucumber", "banana", "banana"; # => 3, 4, "1=", "1="
 
+Return the ranks of records (taken from L<Sort::Rank>'s Synopsis):
+
+ my @ranks = rankby {$b->{score} <=> $a->{score}} (
+     {   score   => 80,  name    => 'Andy'       },
+     {   score   => 70,  name    => 'Chrissie'   },
+     {   score   => 90,  name    => 'Alex'       },
+     {   score   => 90,  name    => 'Rosie'      },
+     {   score   => 80,  name    => 'Therese'    },
+     {   score   => 10,  name    => 'Mac'        },
+     {   score   => 10,  name    => 'Horton'     },
+ ); # => ("3=", 5, "1=", "1=", "3=", "6=", "6=")
+
 Sort the list numerically and return the elements as well as ranks in pairs:
 
  my @res = sortrank 10, 30, 20, 20; # => 10,1, 20,"2=", 20,"2=", 30,4
@@ -218,4 +230,7 @@ pairs:
 
 =head1 SEE ALSO
 
-L<Sort::Rank>
+L<Sort::Rank> also accomplishes the same thing, but by default it expects an
+arrayref *of hashrefs* with key C<score> in each hashref. To process a list of
+scalars, you need to supply a coderef to supply the scores. Another thing is,
+the module does not provide a way to sort by a custom order.
